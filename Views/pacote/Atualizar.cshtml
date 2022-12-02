@@ -1,0 +1,30 @@
+@model pacoteTurismo;
+@{
+  ViewData["Title"] = "Edição de Pacotes Turísticos";
+}
+
+<h2>Atualizar Pacote!</h2>
+
+<form asp-action="Atualizar" , method="post">
+  <input type="hidden" asp-for="id" required>
+  <p>
+    <label asp-for="nome">Nome: </label>
+    <input type="text" asp-for="nome" required>
+  </p>
+  <p>
+    <label asp-for="origem">Origem: </label>
+    <input type="text" asp-for="origem" required>
+  </p>
+  <p>
+    <label asp-for="destino">Destino: </label>
+    <input type="text" asp-for="destino" required>
+  </p>
+  <p>
+    <label asp-for="atrativos">Atrativos: </label>
+    <input type="text" asp-for="atrativos" required>
+  </p>
+  <p>
+    <input type="submit" value="Editar">
+  </p>
+</form>
+<p id="pMensagem">@ViewBag.Mensagem</p>
