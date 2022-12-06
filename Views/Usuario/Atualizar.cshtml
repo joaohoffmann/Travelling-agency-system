@@ -1,26 +1,43 @@
 @model Usuarios;
 @{
-  ViewData["Title"] = "Edição de Usuário";
+  ViewData["Title"] = "Atualizar Cadastro";
 }
+<script>
+  function valida() {
+    if (document.f_form.f_nome.value == "" || document.f_form.f_nome.value == "  " || document.f_form.f_nome.value == " ") {
+      alert("Digite o nome");
+      document.getElementById("f_inome").focus();
+      return false;
+    }
+    if (document.f_form.f_login.value == "" || document.f_form.f_login.value == "  " || document.f_form.f_login.value == " ") {
+      alert("Digite um login");
+      document.getElementById("f_login").focus();
+      return false;
+    }
+    if (document.f_form.f_senha.value == "" || document.f_form.f_senha.value == "  " || document.f_form.f_senha.value == " ") {
+      alert("Digite uma senha");
+      document.getElementById("f_senha").focus();
+      return false;
+    }
+  }
+</script>
+<h2>Atualizar cadastro!</h2>
 
-<h2>Atualizar usuarios!</h2>
-
-<form asp-action="Atualizar" , method="post">
-  <input type="hidden" asp-for="id">
+<form name="f_form" , asp-action="Atualizar" , method="post" , onsubmit="return valida()">
   <p>
     <label asp-for="nome">Nome: </label>
-    <input asp-for="nome" required>
+    <input type="text" asp-for="nome" required name="f_nome" id="f_inome">
   </p>
   <p>
     <label asp-for="login">Login: </label>
-    <input asp-for="login" required>
+    <input type="text" asp-for="login" required name="f_login" id="f_login">
   </p>
   <p>
     <label asp-for="senha">Senha: </label>
-    <input asp-for="senha" required>
+    <input type="text" asp-for="senha" required name="f_senha" id="f_senha">
   </p>
   <p>
-    <input type="submit" value="Editar">
+    <input type="submit" value="Atualizar">
   </p>
 </form>
 <p id="pMensagem">@ViewBag.Mensagem</p>

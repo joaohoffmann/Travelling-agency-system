@@ -24,7 +24,7 @@ namespace atividade02.Controllers
             pacoteTurismoRepository pctR = new pacoteTurismoRepository();
             pctR.Insert(novoPct);
             ViewBag.Mensagem = "Pacote cadastrado com sucesso!";
-            return View("Listar");
+            return RedirectToAction("Listar");
         }
         public IActionResult Listar()
         {
